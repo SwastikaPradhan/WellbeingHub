@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { databases } from "@/lib/appwrite";
-import { ID, Models } from "appwrite";
+import {  Models } from "appwrite";
 import MoodTrendsChart from "./MoodTrendsChart";
 import HistoricalComparison from "./HistoricalComparison";
 
