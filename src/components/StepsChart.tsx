@@ -41,7 +41,7 @@ export default function StepsTrendChart() {
         if (!doc.timestamp || !doc.duration) return;
 
         const date = parseISO(doc.timestamp);
-        const steps = doc.duration; // <-- adjust if you have a specific "steps" field
+        const steps = doc.duration; 
 
         const daysAgo = Math.floor((today.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
 

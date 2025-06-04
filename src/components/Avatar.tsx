@@ -1,25 +1,30 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, MouseEventHandler } from "react";
+import { useState, useEffect, MouseEventHandler } from "react";
+
 
 export function ProfileBox() {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [name, setName] = useState("Swastika");
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
 
   const logout = () => {
     localStorage.clear();
     router.push("/");
-    
   };
-
-  const getName = localStorage.getItem("name") || "Swastika";
 
   return (
     <div className="relative cursor-pointer">
       <div onClick={() => setShow(!show)}>
-       
-        <Avatar name={getName} />
+        <Avatar name={name} />
       </div>
       {show && (
         <div className="absolute -bottom-24 -left-16 shadow-lg p-4 bg-gray-50 border border-gray-100 z-50 w-[160px]">
@@ -33,6 +38,7 @@ export function ProfileBox() {
     </div>
   );
 }
+
 
 export function Avatar({
   name,
