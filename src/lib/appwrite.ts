@@ -10,6 +10,7 @@ if (!appwriteUrl || !appwriteProjectId) {
 const client = new Client()
    .setEndpoint(appwriteUrl) 
   .setProject(appwriteProjectId);
+  console.log("✅ Appwrite client configured successfully.");
 
 const account = new Account(client);
 const databases = new Databases(client);
